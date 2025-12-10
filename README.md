@@ -83,11 +83,27 @@ Locate the configuration section near the top of the file. Here is a detailed ex
 
 ### **2\. Shift Preferences (Smart Filtering)**
 
-**NUMBER\_OF\_DAYS \= 5**
+**START\_DATE \= "Dec 22"**  
+**END\_DATE \= "Dec 27"**
 
-* **What it does:** This tells the script how many days into the future it should look.  
-* **How it works:** If set to 5, the script will click through the schedule slider for Day 1, Day 2, Day 3, Day 4, and Day 5\. It will ignore anything scheduled 6 or 7 days out.  
-* **Note:** This corresponds to the days visible in the slider on your "Find Shifts" page.
+* **What it does:** These two settings create a specific "window" of time for the bot to operate in.  
+* **How it works:**  
+  * **Start Date:** When the bot looks at the schedule slider, it checks the date of each day. If the date is *before* your START\_DATE, it skips that day entirely without clicking it.  
+  * **End Date:** As soon as the bot encounters a date that is *after* your END\_DATE, it stops checking the schedule completely and finishes its run.  
+* **Format:** You must use the "Month Day" format with the first 3 letters of the month capitalized (e.g., "Jan 01", "Dec 25", "Nov 05").  
+* **Optional:** If you want the bot to run indefinitely (or just based on days of the week), leave these blank (e.g., START\_DATE \= "").
+
+Example Scenario:  
+You are going on vacation and only want to pick up shifts for the week you return.
+
+```python
+
+START\_DATE \= "Jan 05"  
+END\_DATE \= "Jan 12" 
+
+```
+
+*Result:* The bot will ignore today's shifts. It will fast-forward through the schedule until it finds Jan 5th, check shifts for Jan 5th through Jan 12th, and then turn itself off.
 
 EARLIEST\_TIME \= "07:00"  
 LATEST\_TIME \= "11:00"
