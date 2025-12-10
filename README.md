@@ -2,7 +2,7 @@
 
 ## **Overview**
 
-This Python script automates the process of finding and claiming Voluntary Extra Time (VET) or Flex shifts on the Amazon A to Z portal. It acts as a smart assistant that constantly monitors the schedule based on your personal preferences—such as specific days of the week, shift times, and shift lengths—and attempts to claim them the moment they become available.
+This Python script automates the proceess of finding shifts on the Amazon A to Z portal. It acts as a smart assistant that constantly monitors the schedule based on your personal preferences—such as specific days of the week, shift times, and shift lengths—and attempts to claim them the moment they become available.
 
 **Key Features:**
 
