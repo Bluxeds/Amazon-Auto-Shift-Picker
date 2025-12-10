@@ -1,12 +1,12 @@
 STALL_AFTER_LOGIN = 2 # Seconds the program will stall after logging in before starting to interact with the AtoZ shift management
 
-NUMBER_OF_DAYS = 0
+NUMBER_OF_DAYS = 5
 
 EARLIEST_TIME = "00:00"
 
 LATEST_TIME = "00:00"
 
-LONGEST_SHIFT = 0
+LONGEST_SHIFT = 8
 
 WEEKDAYS = [
 "Monday",
@@ -25,9 +25,9 @@ LOGIN_URL = "https://atoz-login.amazon.work"
 
 Amazon_Login = ""
 
-HOURS_TO_RUN = 0  # Hours
+HOURS_TO_RUN = 3  # Hours
 
-SECONDS_BETWEEN_CHECKS = 0 # Seconds to wait once all days are checked for available shifts to recheck all days again
+SECONDS_BETWEEN_CHECKS = 5 # Seconds to wait once all days are checked for available shifts to recheck all days again
 
 import time
 import random
@@ -293,6 +293,7 @@ def main():
     start = time.time()
     browser = Browser()
     browser.login()
+    browser.save_cookies()
     while time.time() - start < HOURS_TO_RUN * 60 * 60:
         browser.find_shifts()
         browser.back_home()
